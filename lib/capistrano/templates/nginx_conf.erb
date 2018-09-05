@@ -51,7 +51,7 @@ server {
     proxy_redirect off;
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection "Upgrade";
-<% if fetch(:nginx_use_ssl) -%>
+<% if fetch(:nginx_use_ssl) || fetch(:nginx_frontend_use_ssl) -%>
     proxy_set_header X-Forwarded-Proto https;
 <% else -%>
     proxy_set_header X-Forwarded-Proto http;
